@@ -21,7 +21,7 @@ const Login = () => {
                     'Content-Type': 'application/json'
                 }
             }
-            const results = await axios.post('/apibpfk/login', {
+            const results = await axios.post('/apiregfaskeslain/login', {
                 userName: email,
                 password: password
             }, customConfig)

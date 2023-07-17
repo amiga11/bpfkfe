@@ -35,7 +35,7 @@ const RegistrasiList = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("/apibpfk/token");
+      const response = await axios.get("/apiregfaskeslain/token");
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setExpire(decoded.exp);
@@ -52,7 +52,7 @@ const RegistrasiList = () => {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("/apibpfk/token");
+        const response = await axios.get("/apiregfaskeslain/token");
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
@@ -74,7 +74,7 @@ const RegistrasiList = () => {
         }
       }
 
-      await axiosJWT.post('/apibpfk/bpfk/validasi', param, customConfig)
+      await axiosJWT.post('/apiregfaskeslain/bpfk/validasi', param, customConfig)
       // console.log(param)
 
       alert("Validasi Berhasil, Kode Fasyankes Telah dikirim ke Email Terdaftar");
@@ -128,14 +128,14 @@ const RegistrasiList = () => {
       let response;
       // console.log('jinxprolotus ' + jenis)
       if (jenis == '1') {
-        response = await axiosJWT.get("/apibpfk/bpfk/cari?search=" + cariData,
+        response = await axiosJWT.get("/apiregfaskeslain/bpfk/cari?search=" + cariData,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
       } else if (jenis == '2') {
-        response = await axiosJWT.get("/apibpfk/rmc/cari?search=" + cariData,
+        response = await axiosJWT.get("/apiregfaskeslain/rmc/cari?search=" + cariData,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -157,7 +157,7 @@ const RegistrasiList = () => {
       let response;
       if (e.target.value == '1') {
         setJenisFaskes(e.target.value)
-        response = await axiosJWT.get("/apibpfk/bpfk",
+        response = await axiosJWT.get("/apiregfaskeslain/bpfk",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -166,7 +166,7 @@ const RegistrasiList = () => {
         console.log(response.data);
       } else if (e.target.value == '2') {
         setJenisFaskes(e.target.value)
-        response = await axiosJWT.get("/apibpfk/rmc",
+        response = await axiosJWT.get("/apiregfaskeslain/rmc",
           {
             headers: {
               Authorization: `Bearer ${token}`,

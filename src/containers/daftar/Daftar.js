@@ -51,7 +51,7 @@ const Daftar = () => {
 
     const getPropinsi = async () => {
         try {
-            const response = await axios.get('/apibpfk/propinsi')
+            const response = await axios.get('/apiregfaskeslain/propinsi')
             const propinsiTemplate = response.data.data.map((value, index) => {
                 return {
                     key: value.id,
@@ -67,7 +67,7 @@ const Daftar = () => {
     }
     const getKepemilikan = async () => {
         try {
-            const response = await axios.get('/apibpfk/kepemilikan')
+            const response = await axios.get('/apiregfaskeslain/kepemilikan')
             const kepemilikanTemplate = response.data.data.map((value, index) => {
                 return {
                     key: value.id,
@@ -84,7 +84,7 @@ const Daftar = () => {
 
     const getKota = async (id) => {
         try {
-            const response = await axios.get('/apibpfk/kota?propid=' + id)
+            const response = await axios.get('/apiregfaskeslain/kota?propid=' + id)
             const kotaTemplate = response.data.data.map((value, index) => {
                 return {
                     value: value.id,
@@ -105,7 +105,7 @@ const Daftar = () => {
         try {
             let cek = e.target.value;
             const response = await axios.get(
-                "/apibpfk/kota?propid=" + e.target.value,
+                "/apiregfaskeslain/kota?propid=" + e.target.value,
             );
             const detailKabKot = response.data.data.map((value) => {
                 return value;
@@ -262,7 +262,7 @@ const Daftar = () => {
             // console.log(dataInsert)
             // console.log("================================")
 
-            const result = await axios.post('/apibpfk/institusi',
+            const result = await axios.post('/apiregfaskeslain/institusi',
                 dataInsert
             )
 

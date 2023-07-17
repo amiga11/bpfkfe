@@ -34,7 +34,7 @@ const Update = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("/apibpfk/token");
+      const response = await axios.get("/apiregfaskeslain/token");
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setExpire(decoded.exp);
@@ -50,7 +50,7 @@ const Update = () => {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("/apibpfk/token");
+        const response = await axios.get("/apiregfaskeslain/token");
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
@@ -65,7 +65,7 @@ const Update = () => {
 
   const getDataInstitusiId = async () => {
     try {
-      const response = await axiosJWT.get("/apibpfk/institusi/id", {
+      const response = await axiosJWT.get("/apiregfaskeslain/institusi/id", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -237,7 +237,7 @@ const Update = () => {
 
       console.log(dataInsert);
 
-      // const result = await axios.patch("/apibpfk/institusi", dataInsert);
+      // const result = await axios.patch("/apiregfaskeslain/institusi", dataInsert);
 
       alert("Update Data Berhasil.");
 

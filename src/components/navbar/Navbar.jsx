@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const Logout = async () => {
     try {
-      await axios.delete("/apibpfk/logout");
+      await axios.delete("/apiregfaskeslain/logout");
       localStorage.removeItem("name");
       navigate("/");
     } catch (error) {

@@ -34,7 +34,7 @@ const BpfkValidated = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("/apibpfk/token");
+      const response = await axios.get("/apiregfaskeslain/token");
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setExpire(decoded.exp);
@@ -51,7 +51,7 @@ const BpfkValidated = () => {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("/apibpfk/token");
+        const response = await axios.get("/apiregfaskeslain/token");
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
@@ -74,7 +74,7 @@ const BpfkValidated = () => {
   const searchDataBpfk = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosJWT.get("/apibpfk/bpfkvalidated/cari?search=" + cariData,
+      const response = await axiosJWT.get("/apiregfaskeslain/bpfkvalidated/cari?search=" + cariData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const BpfkValidated = () => {
 
   const getDataBpfkValidated = async (e) => {
     try {
-      const response = await axiosJWT.get("/apibpfk/bpfkvalidated",
+      const response = await axiosJWT.get("/apiregfaskeslain/bpfkvalidated",
         {
           headers: {
             Authorization: `Bearer ${token}`,

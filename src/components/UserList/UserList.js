@@ -34,7 +34,7 @@ const UserList = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("/apibpfk/token");
+      const response = await axios.get("/apiregfaskeslain/token");
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setExpire(decoded.exp);
@@ -51,7 +51,7 @@ const UserList = () => {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("/apibpfk/token");
+        const response = await axios.get("/apiregfaskeslain/token");
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
@@ -74,7 +74,7 @@ const UserList = () => {
   const getDataUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosJWT.get("/apibpfk/user/cari?search=" + cariData,
+      const response = await axiosJWT.get("/apiregfaskeslain/user/cari?search=" + cariData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const UserList = () => {
 
   const getAllUser = async (e) => {
     try {
-      const response = await axiosJWT.get("/apibpfk/user",
+      const response = await axiosJWT.get("/apiregfaskeslain/user",
         {
           headers: {
             Authorization: `Bearer ${token}`,

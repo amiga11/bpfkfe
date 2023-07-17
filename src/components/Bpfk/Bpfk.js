@@ -34,7 +34,7 @@ const Bpfk = () => {
 
   const refreshToken = async () => {
     try {
-      const response = await axios.get("/apibpfk/token");
+      const response = await axios.get("/apiregfaskeslain/token");
       setToken(response.data.accessToken);
       const decoded = jwt_decode(response.data.accessToken);
       setExpire(decoded.exp);
@@ -51,7 +51,7 @@ const Bpfk = () => {
     async (config) => {
       const currentDate = new Date();
       if (expire * 1000 < currentDate.getTime()) {
-        const response = await axios.get("/apibpfk/token");
+        const response = await axios.get("/apiregfaskeslain/token");
         config.headers.Authorization = `Bearer ${response.data.accessToken}`;
         setToken(response.data.accessToken);
         const decoded = jwt_decode(response.data.accessToken);
@@ -73,7 +73,7 @@ const Bpfk = () => {
         }
       }
 
-      await axiosJWT.post('/apibpfk/bpfk/validasi', param, customConfig)
+      await axiosJWT.post('/apiregfaskeslain/bpfk/validasi', param, customConfig)
       // console.log(param)
 
       alert("Validasi Berhasil, Kode Fasyankes Telah dikirim ke Email Terdaftar");
@@ -118,7 +118,7 @@ const Bpfk = () => {
   const getDataInstitusi = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosJWT.get("/apibpfk/bpfk/cari?search=" + cariData,
+      const response = await axiosJWT.get("/apiregfaskeslain/bpfk/cari?search=" + cariData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@ const Bpfk = () => {
 
   const getAllDataInstitusi = async (e) => {
     try {
-      const response = await axiosJWT.get("/apibpfk/bpfk",
+      const response = await axiosJWT.get("/apiregfaskeslain/bpfk",
         {
           headers: {
             Authorization: `Bearer ${token}`,
