@@ -1,0 +1,45 @@
+.rlTable {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ddd;
+}
+.rlTable td, .rlTable th {
+    border: 1px solid #161616;
+    padding: 4px;
+}
+.rlTable tr:nth-child(even){background-color: #f2f2f2;}
+.rlTable tr:hover {background-color: #ddd;}
+.rlTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center !important;
+    background-color: #05386a;
+    color: white;
+}
+
+.gpt3__login-content button {
+    /* flex: 0.6; */
+    width: 100%;
+    min-height: 10px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    /* justify-content: ; */
+    line-height: 38px;
+    background: #FF4820;
+    border: 2px solid #FF4820;
+    padding: 0 1rem;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    max-width: 50px;
+    /* float: right; */
+
+    /* margin-left: 10px; */
+    margin-top: 28px;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
